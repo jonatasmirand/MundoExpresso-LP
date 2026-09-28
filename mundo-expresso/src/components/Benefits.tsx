@@ -2,7 +2,7 @@ import { benefits } from '../data/content'
 
 function Benefits() {
   return (
-    <section className="benefits" aria-label="Vantagens de comprar no Mundo Expresso">
+    <section className="benefits" aria-label="Vantagens de contratar o Mundo Expresso">
       <div className="container benefits__grid">
         {benefits.map((benefit) => (
           <div className="benefit" key={benefit.title}>
