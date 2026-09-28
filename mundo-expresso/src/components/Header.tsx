@@ -1,80 +1,62 @@
 import { useState } from 'react'
+import logo from '../assets/logo.png'
+import { contact } from '../data/content'
 
 const navLinks = [
-  { href: '#ofertas', label: 'Ofertas' },
-  { href: '#categorias', label: 'Categorias' },
-  { href: '#relampago', label: 'Oferta relâmpago' },
-  { href: '#depoimentos', label: 'Depoimentos' },
+  { href: '#servicos', label: 'Serviços' },
+  { href: '#empresa', label: 'A empresa' },
+  { href: '#objetivos', label: 'Objetivos' },
+  { href: '#diferenciais', label: 'Por que nos contratar' },
   { href: '#faq', label: 'Dúvidas' },
+  { href: '#contato', label: 'Contato' },
 ]
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [query, setQuery] = useState('')
 
   return (
     <header className="header">
       <div className="container header__inner">
         <a className="logo" href="#topo">
-          <span className="logo__mark" aria-hidden="true">
-            ME
-          </span>
+          <img src={logo} alt="Mundo Expresso Transportadora" />
           <span className="logo__text">
             Mundo <strong>Expresso</strong>
+            <small>Transportadora</small>
           </span>
         </a>
 
-        <form
-          className="search"
-          role="search"
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <label className="sr-only" htmlFor="busca">
-            Buscar produtos
-          </label>
-          <input
-            id="busca"
-            type="search"
-            placeholder="Busque por fone, air fryer, smartwatch..."
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-          />
-          <button type="submit" aria-label="Buscar">
-            🔍
-          </button>
-        </form>
+        <nav className={`nav ${menuOpen ? 'nav--open' : ''}`} aria-label="Principal">
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
 
         <div className="header__actions">
-          <a className="icon-button" href="#newsletter">
-            <span aria-hidden="true">👤</span>
-            <span className="icon-button__label">Minha conta</span>
+          <a className="header__phone" href={contact.phoneHref}>
+            <span aria-hidden="true">📞</span>
+            {contact.phone}
           </a>
-          <a className="icon-button" href="#ofertas">
-            <span aria-hidden="true">🛒</span>
-            <span className="icon-button__label">Carrinho</span>
-            <span className="badge">3</span>
+          <a
+            className="button button--primary button--sm"
+            href={contact.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Pedir orçamento
           </a>
           <button
             type="button"
             className="menu-toggle"
             aria-expanded={menuOpen}
-            aria-label="Abrir menu de categorias"
+            aria-label="Abrir menu"
             onClick={() => setMenuOpen((open) => !open)}
           >
             ☰
           </button>
         </div>
       </div>
-
-      <nav className={`nav ${menuOpen ? 'nav--open' : ''}`} aria-label="Categorias">
-        <div className="container nav__inner">
-          {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </nav>
     </header>
   )
 }

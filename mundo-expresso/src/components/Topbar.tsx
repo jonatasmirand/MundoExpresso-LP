@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react'
-
-const messages = [
-  '🚚 Frete grátis em compras acima de R$199',
-  '🔥 Até 50% OFF em eletrônicos importados',
-  '💳 Pix com 10% de desconto ou 12x sem juros',
-]
+import { announcements } from '../data/content'
 
 function Topbar() {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
     const id = setInterval(() => {
-      setIndex((current) => (current + 1) % messages.length)
+      setIndex((current) => (current + 1) % announcements.length)
     }, 4000)
     return () => clearInterval(id)
   }, [])
@@ -24,19 +19,19 @@ function Topbar() {
           className="topbar__arrow"
           aria-label="Aviso anterior"
           onClick={() =>
-            setIndex((current) => (current - 1 + messages.length) % messages.length)
+            setIndex((current) => (current - 1 + announcements.length) % announcements.length)
           }
         >
           ‹
         </button>
         <p className="topbar__message" key={index} aria-live="polite">
-          {messages[index]}
+          {announcements[index]}
         </p>
         <button
           type="button"
           className="topbar__arrow"
           aria-label="Próximo aviso"
-          onClick={() => setIndex((current) => (current + 1) % messages.length)}
+          onClick={() => setIndex((current) => (current + 1) % announcements.length)}
         >
           ›
         </button>

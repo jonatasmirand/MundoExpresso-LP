@@ -1,13 +1,13 @@
+import About from './components/About'
 import Benefits from './components/Benefits'
-import Categories from './components/Categories'
+import Contact from './components/Contact'
 import Faq from './components/Faq'
-import FlashSale from './components/FlashSale'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import Newsletter from './components/Newsletter'
-import ProductGrid from './components/ProductGrid'
-import Testimonials from './components/Testimonials'
+import Objectives from './components/Objectives'
+import Reasons from './components/Reasons'
+import Services from './components/Services'
 import Topbar from './components/Topbar'
 import './App.css'
 
@@ -19,11 +19,11 @@ function App() {
       <main>
         <Hero />
         <Benefits />
-        <Categories />
-        <ProductGrid />
-        <FlashSale />
-        <Testimonials />
-        <Newsletter />
+        <Services />
+        <About />
+        <Objectives />
+        <Reasons />
+        <Contact />
         <Faq />
       </main>
       <Footer />

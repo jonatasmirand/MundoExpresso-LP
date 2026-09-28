@@ -1,27 +1,14 @@
-const columns = [
-  {
-    title: 'Institucional',
-    links: ['Quem somos', 'Trabalhe conosco', 'Política de privacidade', 'Termos de uso'],
-  },
-  {
-    title: 'Ajuda',
-    links: ['Central de atendimento', 'Rastrear pedido', 'Trocas e devoluções', 'Prazos de entrega'],
-  },
-  {
-    title: 'Categorias',
-    links: ['Eletrônicos', 'Casa & Cozinha', 'Beleza', 'Games'],
-  },
-]
-
-const payments = ['Pix', 'Boleto', 'Visa', 'Mastercard', 'Elo', 'Amex']
+import logo from '../assets/logo.png'
+import { contact, services } from '../data/content'
 
 const currentYear = new Date().getFullYear()
 
-const socials = [
-  { label: 'Instagram', emoji: '📷' },
-  { label: 'TikTok', emoji: '🎵' },
-  { label: 'YouTube', emoji: '▶️' },
-  { label: 'WhatsApp', emoji: '💬' },
+const links = [
+  { href: '#servicos', label: 'Serviços' },
+  { href: '#empresa', label: 'A empresa' },
+  { href: '#objetivos', label: 'Objetivos' },
+  { href: '#diferenciais', label: 'Por que nos contratar' },
+  { href: '#faq', label: 'Dúvidas frequentes' },
 ]
 
 function Footer() {
@@ -30,57 +17,65 @@ function Footer() {
       <div className="container footer__grid">
         <div className="footer__brand">
           <a className="logo logo--light" href="#topo">
-            <span className="logo__mark" aria-hidden="true">
-              ME
-            </span>
+            <img src={logo} alt="Mundo Expresso Transportadora" />
             <span className="logo__text">
               Mundo <strong>Expresso</strong>
+              <small>Transportadora</small>
             </span>
           </a>
           <p>
-            Importados e ofertas com nota fiscal, garantia de 12 meses e entrega
-            rastreada para todo o Brasil.
+            Transporte de todos os tipos de materiais de forma segura, rápida,
+            eficiente, pontual e responsável.
           </p>
-          <div className="footer__socials">
-            {socials.map((social) => (
-              <a key={social.label} href="#topo" aria-label={social.label}>
-                <span aria-hidden="true">{social.emoji}</span>
-              </a>
-            ))}
-          </div>
         </div>
 
-        {columns.map((column) => (
-          <nav className="footer__col" key={column.title} aria-label={column.title}>
-            <h3>{column.title}</h3>
-            <ul>
-              {column.links.map((link) => (
-                <li key={link}>
-                  <a href="#topo">{link}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ))}
+        <nav className="footer__col" aria-label="Navegação">
+          <h3>Navegue</h3>
+          <ul>
+            {links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="footer__col">
-          <h3>Formas de pagamento</h3>
-          <div className="footer__payments">
-            {payments.map((payment) => (
-              <span className="badge-pay" key={payment}>
-                {payment}
-              </span>
+          <h3>Serviços</h3>
+          <ul>
+            {services.slice(0, 4).map((service) => (
+              <li key={service.id}>
+                <a href="#servicos">{service.title}</a>
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
+
+        <div className="footer__col">
+          <h3>Contato</h3>
+          <ul>
+            <li>
+              <a href={contact.whatsapp} target="_blank" rel="noreferrer">
+                WhatsApp {contact.phone}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            </li>
+            <li>
+              <a href={contact.instagramUrl} target="_blank" rel="noreferrer">
+                Instagram {contact.instagram}
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
       <div className="container footer__bottom">
-        <p>
-          Mundo Expresso Comércio Digital LTDA · CNPJ 12.345.678/0001-90 · Av. das
-          Américas, 1000 — São Paulo/SP
-        </p>
-        <p>© {currentYear} Mundo Expresso. Todos os direitos reservados.</p>
+        <p>© {currentYear} Mundo Expresso Transportadora. Todos os direitos reservados.</p>
+        <a href={contact.whatsapp} target="_blank" rel="noreferrer">
+          Solicitar orçamento
+        </a>
       </div>
     </footer>
   )
