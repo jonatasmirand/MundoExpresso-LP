@@ -8,9 +8,9 @@ export const contact = {
 }
 
 export const announcements = [
-  '🚚 Solicitação de emergência? Atendemos no mesmo dia.',
-  `📞 Peça seu orçamento agora: ${contact.phone}`,
-  '📦 Pequenas, médias e grandes distâncias com segurança.',
+  'Solicitação de emergência? Atendemos no mesmo dia.',
+  `Peça seu orçamento agora: ${contact.phone}`,
+  'Pequenas, médias e grandes distâncias com segurança.',
 ]
 
 export const benefits = [

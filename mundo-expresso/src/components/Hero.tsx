@@ -6,17 +6,17 @@ function Hero() {
     <section className="hero" id="topo">
       <div className="container hero__inner">
         <div className="hero__content">
-          <span className="pill">Transporte e logística</span>
-          <h1>
+          <span className="pill animate-fade-in-up">Transporte e logística</span>
+          <h1 className="animate-fade-in-up stagger-1">
             Sua carga entregue de forma{' '}
-            <span className="gradient-text">segura, rápida e pontual</span>
+            <span className="highlight-text">segura, rápida e pontual</span>
           </h1>
-          <p>
+          <p className="animate-fade-in-up stagger-2">
             Transportamos todos os tipos de materiais com eficiência e
             responsabilidade, superando as expectativas dos nossos clientes em
             pequenas, médias e grandes distâncias.
           </p>
-          <div className="hero__cta">
+          <div className="hero__cta animate-fade-in-up stagger-3">
             <a
               className="button button--primary"
               href={contact.whatsapp}
@@ -29,7 +29,7 @@ function Hero() {
               Conhecer os serviços
             </a>
           </div>
-          <dl className="hero__stats">
+          <dl className="hero__stats animate-fade-in-up stagger-4">
             <div>
               <dt>Todo tipo</dt>
               <dd>de material, pequeno e médio porte</dd>
@@ -45,7 +45,7 @@ function Hero() {
           </dl>
         </div>
 
-        <div className="hero__art">
+        <div className="hero__art animate-scale-in stagger-2">
           <img src={logo} alt="Logo Mundo Expresso Transportadora" />
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { announcements } from '../data/content'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 function Topbar() {
   const [index, setIndex] = useState(0)
@@ -22,7 +23,7 @@ function Topbar() {
             setIndex((current) => (current - 1 + announcements.length) % announcements.length)
           }
         >
-          ‹
+          <FaChevronLeft />
         </button>
         <p className="topbar__message" key={index} aria-live="polite">
           {announcements[index]}
@@ -33,7 +34,7 @@ function Topbar() {
           aria-label="Próximo aviso"
           onClick={() => setIndex((current) => (current + 1) % announcements.length)}
         >
-          ›
+          <FaChevronRight />
         </button>
       </div>
     </div>

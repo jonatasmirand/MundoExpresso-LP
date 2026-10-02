@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import logo from '../assets/logo.png'
 import { contact } from '../data/content'
+import { FaPhone, FaBars } from 'react-icons/fa'
 
 const navLinks = [
   { href: '#servicos', label: 'Serviços' },
@@ -35,7 +36,7 @@ function Header() {
 
         <div className="header__actions">
           <a className="header__phone" href={contact.phoneHref}>
-            <span aria-hidden="true">📞</span>
+            <FaPhone aria-hidden="true" />
             {contact.phone}
           </a>
           <a
@@ -53,7 +54,7 @@ function Header() {
             aria-label="Abrir menu"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            ☰
+            <FaBars />
           </button>
         </div>
       </div>

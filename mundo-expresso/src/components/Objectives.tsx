@@ -1,10 +1,13 @@
 import { contact } from '../data/content'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 function Objectives() {
+  const [sectionRef, isVisible] = useScrollAnimation()
+
   return (
-    <section className="objectives" id="objetivos">
+    <section className="objectives" id="objetivos" ref={sectionRef}>
       <div className="container objectives__inner">
-        <div>
+        <div className={`animate-on-scroll ${isVisible ? 'visible' : ''}`}>
           <span className="pill pill--light">Principais objetivos</span>
           <h2>
             Queremos ser referência no segmento de transporte nos próximos anos
@@ -26,15 +29,15 @@ function Objectives() {
         </div>
 
         <ul className="objectives__list">
-          <li>
+          <li className={`animate-on-scroll stagger-1 ${isVisible ? 'visible' : ''}`}>
             <strong>Qualidade</strong>
             <span>Entregar qualidade e eficiência em cada solicitação.</span>
           </li>
-          <li>
+          <li className={`animate-on-scroll stagger-2 ${isVisible ? 'visible' : ''}`}>
             <strong>Fidelidade</strong>
             <span>Conquistar a confiança e a fidelidade dos clientes.</span>
           </li>
-          <li>
+          <li className={`animate-on-scroll stagger-3 ${isVisible ? 'visible' : ''}`}>
             <strong>Crescimento</strong>
             <span>
               Nos tornar uma das maiores empresas de transporte e logística.
